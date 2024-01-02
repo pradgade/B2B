@@ -101,4 +101,13 @@ Updated the renewed_by column with sub_ux_id of the previous subs,
 			ON ast.id = sussl.sub_ux_id
 	ORDER BY date_added ASC;
 
+-- Dropped columns credit_note and date_added as not needed
+
+	ALTER TABLE linking_table_credit_note
+		DROP COLUMN credit_note,
+		DROP COLUMN date_added;
+
+-- Dropped staging table
+	DROP TABLE IF EXISTS all_schools_temp;
+
 END;
